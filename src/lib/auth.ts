@@ -1,9 +1,9 @@
 import { createAuthClient } from '@neondatabase/neon-js/auth';
 import { neon } from '@neondatabase/serverless';
 
-// Obter URL do Neon Auth e Neon Database a partir das variáveis de ambiente (.env.local)
-const authUrl = import.meta.env.VITE_NEON_AUTH_URL || '';
-const dbUrl = import.meta.env.VITE_DATABASE_URL || '';
+// Obter URL do Neon Auth e Neon Database a partir das variáveis de ambiente (.env.local / Vercel)
+const authUrl = (import.meta.env.VITE_NEON_AUTH_URL || '').trim();
+const dbUrl = (import.meta.env.VITE_DATABASE_URL || '').trim();
 
 // Inicializa o cliente oficial do Neon Auth
 export const authClient = createAuthClient(authUrl);
